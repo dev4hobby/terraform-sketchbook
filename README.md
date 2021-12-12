@@ -49,8 +49,8 @@ terraform validate
 terraform apply
 ```
 
-```json
-// add variables.tf and use variable on main.tf or something
+```text
+# add variables.tf and use variable on main.tf or something
 variable "instance_name" {
   description = "Value of the Name tag for the EC2 instance"
   type        = string
@@ -78,8 +78,8 @@ terraform state list
 
 #### Inspect
 
-```json
-// Add output.tf
+```text
+# Add output.tf
 output "instance_id" {
   description = "ID of the EC2 instance"
   value = aws_instance.app_server.id
@@ -101,3 +101,15 @@ terraform output
 ```bash
 terraform destroy
 ```
+
+## Terraform Cloud
+
+If you wanna manage terraform status on cloud, use terraform cloud.
+sync with terraform.io and remove `terraform.tfstate`
+
+1. [Sign up](https://app.terraform.io/signup/account) and [create your new organization](https://app.terraform.io/app/organizations/new)
+2. [Create new workspace](https://app.terraform.io/app/d3fau1t/workspaces/new)
+3. Create API token: `terraform login` and `terraform init`
+4. Add `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` on `Your workspace -> Environment variables`
+5. Remove `terraform.tfstate`
+6. `terraform apply`

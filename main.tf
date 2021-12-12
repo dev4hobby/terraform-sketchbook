@@ -6,7 +6,7 @@ terraform {
     }
   }
 
-  required_version = ">= 0.14.9"
+  required_version = ">= 1.1.0"
 }
 
 provider "aws" {
@@ -21,6 +21,6 @@ resource "aws_instance" "app_server" {
   subnet_id              = "subnet-00e51774e331d98c7"
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = var.instance_name
   }
 }

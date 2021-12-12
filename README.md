@@ -35,13 +35,69 @@ cat your-key-name.pem
 
 ## Command
 
+### Initial
+
 ```bash
 terraform init
 terraform fmt
 terraform validate
+```
+
+### Apply
+
+```bash
 terraform apply
-terraform apply -var "instance_name=my-instance"
+```
+
+```json
+// add variables.tf and use variable on main.tf or something
+variable "instance_name" {
+  description = "Value of the Name tag for the EC2 instance"
+  type        = string
+  default     = "TerraformAppServerInstance"
+}
+
+variable "instance_type" {
+  description = "Value of the type of EC2 instance"
+  type        = string
+  default     = "t2.micro"
+}
+```
+
+```bash
+# with variablese
+terraform apply -var "instance_name=my-instance" -var "instance_type=t2.micro"
+```
+
+### Check
+
+```bash
 terraform show
 terraform state list
+```
+
+#### Inspect
+
+```json
+// Add output.tf
+output "instance_id" {
+  description = "ID of the EC2 instance"
+  value = aws_instance.app_server.id
+}
+
+output "instance_state" {
+  description = "Public IP address of the EC2 instance"
+  value = aws_instance.app_server.public_ip
+}
+```
+
+```bash
+terraform apply
+terraform output
+```
+
+### Destroy
+
+```bash
 terraform destroy
 ```

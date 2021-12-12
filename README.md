@@ -40,6 +40,7 @@ terraform init
 terraform fmt
 terraform validate
 terraform apply
+terraform apply -var "instance_name=my-instance"
 terraform show
 terraform state list
 terraform destroy

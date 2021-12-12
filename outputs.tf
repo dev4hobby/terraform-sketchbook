@@ -1,10 +1,3 @@
-output "instance_id" {
-  description = "ID of the EC2 instance"
-  value = aws_instance.app_server.id
+output "lb_dns_name" {
+  value = aws_lb.app.dns_name
 }
-
-output "instance_state" {
-  description = "Public IP address of the EC2 instance"
-  value = aws_instance.app_server.public_ip
-}
-

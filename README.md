@@ -41,5 +41,6 @@ terraform fmt
 terraform validate
 terraform apply
 terraform show
-terraform state liste
+terraform state list
+terraform destroy
 ```

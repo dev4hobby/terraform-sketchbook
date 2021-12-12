@@ -22,6 +22,7 @@ Add new user and get credential file
 # Grab your KeyID and AccessKey
 aws configure
 ```
+
 if you need, add `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` on your `~/.zshrc`
 
 ### [Optional] AWS Credentials
